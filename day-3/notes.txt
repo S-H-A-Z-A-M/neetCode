@@ -1,0 +1,49 @@
+Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+ 
+
+Example 1:
+
+Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+Example 2:
+
+Input: strs = [""]
+Output: [[""]]
+Example 3:
+
+Input: strs = ["a"]
+Output: [["a"]]
+ 
+
+Constraints:
+
+1 <= strs.length <= 104
+0 <= strs[i].length <= 100
+strs[i] consists of lowercase English letters.
+
+
+Solution steps:
+
+
+1.Sorting Function:
+Define a function sortingElement that sorts characters in a given string in ascending order using C++ STL's sort function.
+
+2.Group Anagrams:
+Initialize an unordered map mymap to store sorted strings as keys and vectors of original strings as values.
+Initialize an index variable count and an empty vector words to store grouped anagrams.
+
+3.Iterate Through Input Vector:
+Iterate through each string in the input vector strs.
+Sort the string using the sortingElement function.
+Check if the sorted string is in the map (mymap).
+If not, add an entry to the map with the sorted string as the key and an empty vector as the value.
+Push the original unsorted string into the vector associated with the sorted key.
+
+4.Create Result Vector:
+Iterate through the map and push each vector of strings into the words vector.
+
+5.Return Result:
+Return the final vector of vectors of strings (words) containing grouped anagrams.
