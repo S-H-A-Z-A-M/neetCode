@@ -1,0 +1,37 @@
+84. Largest Rectangle in Histogram
+
+Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
+
+ 
+
+Example 1:
+
+
+Input: heights = [2,1,5,6,2,3]
+Output: 10
+Explanation: The above is a histogram where width of each bar is 1.
+The largest rectangle is shown in the red area, which has an area = 10 units.
+Example 2:
+
+
+Input: heights = [2,4]
+Output: 4
+ 
+
+Constraints:
+
+1 <= heights.length <= 105
+0 <= heights[i] <= 104
+
+
+solution step:
+
+1. first we create a stack of pair.
+2. in pair we store <index, height>
+3. the logic is we push the element until smaller element doesnt appear.
+4. now if the element is smaller we we calculate the area using the formaula
+(height of the element * (current index - stored index)) till there are no smaller element
+in the stack by poping them and then we store the current element with the index of the last popped element.
+5. after that calculation we store the max area in the area
+6. now some element may not get pop since no smaller element that they may arrive.
+7. at that time we just calculate their area from their height * (size of height - stored index) .
